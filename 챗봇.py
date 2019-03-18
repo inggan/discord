@@ -105,4 +105,4 @@ async def on_message(message):
 			playstr += str(i+1)+" : "+playlist[i]+"\n"
 		await client.send_message(message.channel, playstr+"```")
 
-client.run('token')
+client.run('토큰')
