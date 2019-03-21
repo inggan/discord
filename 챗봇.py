@@ -81,10 +81,10 @@ async def on_message(message):
 
 		if voice_client == None: #봇이 음성채널에 접속해있지 않았을 때
 			await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: 봇이 음성채널에 없어요.",colour = 0x2EFEF7))
-			pass
-		else: #봇이 음성채널에 접속해있을 때
-			await client.send_message(message.channel, embed=discord.Embed(title=":mute: 채널에서 나갑니다.",colour = 0x2EFEF7)) 
-			await voice_client.disconnect()
+			return
+		
+		await client.send_message(message.channel, embed=discord.Embed(title=":mute: 채널에서 나갑니다.",colour = 0x2EFEF7)) #봇이 음성채널에 접속해있을 때
+		await voice_client.disconnect()
 
 	if message.content == "!스킵":
 		id = message.server.id
