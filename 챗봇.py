@@ -96,7 +96,7 @@ async def on_message(message):
 	
 	if message.content == "!목록":
 
-		if playlist == [] and not playerlist[message.server.id].is_playing():
+		if playlist == []:
 			await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: 재생목록이 없습니다.",colour = 0x2EFEF7))
 			return
 
