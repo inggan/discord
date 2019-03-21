@@ -47,9 +47,9 @@ async def on_message(message):
 		server = message.server
 		voice_client = client.voice_client_in(server)
 
-		if client.is_voice_connected(server) and not playerlist[server.id].is_playing(): #봇이 음성채널에 접속해있으나 음악을 실행하지 않을 때
+		if client.is_voice_connected(server) and not playerlist[server.id].is_playing(): #봇이 음성채널에 접속해있으나 음악을 재생하지 않을 때
 			await voice_client.disconnect()
-		elif client.is_voice_connected(server) and playerlist[server.id].is_playing(): #봇이 음성채널에 접속해있고 음악을 실행할 때
+		elif client.is_voice_connected(server) and playerlist[server.id].is_playing(): #봇이 음성채널에 접속해있고 음악을 재생할 때
 			player = await voice_client.create_ytdl_player(url,after=lambda:queue(server.id),before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5")
 			if server.id in que: #큐에 값이 들어있을 때
 				que[server.id].append(player)
